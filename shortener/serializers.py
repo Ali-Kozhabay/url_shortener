@@ -20,7 +20,8 @@ class URLSerializer(serializers.ModelSerializer):
     
     def get_clicks_count(self, obj):
         return obj.clicks.count()
-
+    async def get_expiration_date(self, obj):
+        return obj.expires_at
 
 class URLCreateSerializer(serializers.ModelSerializer):
     custom_code = serializers.CharField(max_length=10, required=False, allow_blank=True)
